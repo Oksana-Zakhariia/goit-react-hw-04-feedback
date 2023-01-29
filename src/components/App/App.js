@@ -11,14 +11,14 @@ export function App() {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
   const options = ['good', 'neutral', 'bad'];
-  const countTotalFeedback = () => {
-    const total = good + bad + neutral;
-    return total;
-  };
-  const countPositiveFeedbackPercentage = () => {
-    const positiveFeedback = parseInt((good * 100) / (good + bad + neutral));
-    return positiveFeedback;
-  };
+  const total = good + bad + neutral;
+  // const countTotalFeedback = () => {
+  //   const total = good + bad + neutral;
+  //   return total;
+  // };
+
+  const positiveFeedback = parseInt((good * 100) / (good + bad + neutral));
+
   const handleFeedback = option => {
     if (option[0] === 'good') {
       setGood(good + 1);
@@ -40,13 +40,13 @@ export function App() {
         ></FeedbackOptions>
       </Section>
       <Section title="Statistics">
-        {countTotalFeedback() > 0 ? (
+        {total > 0 ? (
           <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
-            total={countTotalFeedback()}
-            positivePersentage={countPositiveFeedbackPercentage()}
+            total={total}
+            positivePersentage={positiveFeedback}
           ></Statistics>
         ) : (
           <Notification message="There is no feedback"></Notification>
