@@ -21,13 +21,13 @@ export function App() {
 
   const handleFeedback = option => {
     if (option[0] === 'good') {
-      setGood(good + 1);
+      setGood(prevGood => prevGood + 1);
     }
     if (option[0] === 'bad') {
-      setBad(bad + 1);
+      setBad(prevBad => prevBad + 1);
     }
     if (option[0] === 'neutral') {
-      setNeutral(neutral + 1);
+      setNeutral(prevNeutral => prevNeutral + 1);
     }
   };
 
