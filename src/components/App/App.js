@@ -16,14 +16,14 @@ export function App() {
   const positiveFeedback = parseInt((good * 100) / (good + bad + neutral));
 
   const handleFeedback = option => {
-    if (option[0] === 'good') {
+    if (option === 'good') {
       setGood(prevGood => prevGood + 1);
-    }
-    if (option[0] === 'bad') {
+    } else if (option === 'bad') {
       setBad(prevBad => prevBad + 1);
-    }
-    if (option[0] === 'neutral') {
+    } else if (option === 'neutral') {
       setNeutral(prevNeutral => prevNeutral + 1);
+    } else {
+      return;
     }
   };
 
